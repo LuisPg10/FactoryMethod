@@ -1,4 +1,6 @@
-package domain;
+package domain.entities;
+
+import domain.enums.PaymentType;
 
 public abstract class Payment {
 

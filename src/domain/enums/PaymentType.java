@@ -1,4 +1,4 @@
-package domain;
+package domain.enums;
 
 public enum PaymentType {
   CREDIT_CARD,
