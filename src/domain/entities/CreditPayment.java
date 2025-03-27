@@ -4,17 +4,17 @@ import domain.enums.PaymentType;
 
 public class CreditPayment extends Payment {
 
-  public CreditPayment(double finalAmount, double commissionRate, PaymentType type) {
-    super(finalAmount, commissionRate, type);
+  public CreditPayment() {
+    super(0.03, PaymentType.CREDIT_CARD);
   }
 
   @Override
-  public double calculateFinalAmount() {
-    double finalAmount = this.amount + (this.amount * this.commissionRate);
+  public double calculateFinalAmount(double amount) {
+    double finalAmount = amount + (amount * this.commissionRate);
     System.out.println("Procesando pago con tarjeta de crédito");
 
     // Validaciones específicas
-    if (this.amount > 1000) {
+    if (amount > 1000) {
       finalAmount += 10; // Cargo adicional
     }
 

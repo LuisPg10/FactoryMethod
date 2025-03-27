@@ -4,17 +4,17 @@ import domain.enums.PaymentType;
 
 public class PaypalPayment extends Payment {
 
-  public PaypalPayment(double finalAmount, double commissionRate, PaymentType type) {
-    super(finalAmount, commissionRate, type);
+  public PaypalPayment() {
+    super(0.02, PaymentType.PAYPAL);
   }
 
   @Override
-  public double calculateFinalAmount() {
-    double finalAmount = this.amount + (this.amount * this.commissionRate);
+  public double calculateFinalAmount(double amount) {
+    double finalAmount = amount + (amount * this.commissionRate);
     System.out.println("Procesando pago con PayPal");
 
     // Validaciones específicas
-    if (this.amount > 750) {
+    if (amount > 750) {
       finalAmount += 7; // Cargo adicional
     }
 

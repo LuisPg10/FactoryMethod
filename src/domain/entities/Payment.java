@@ -4,18 +4,12 @@ import domain.enums.PaymentType;
 
 public abstract class Payment {
 
-  protected double amount;
   protected double commissionRate;
   protected PaymentType type;
 
-  public Payment(double finalAmount, double commissionRate, PaymentType type) {
-    this.amount = finalAmount;
+  public Payment(double commissionRate, PaymentType type) {
     this.commissionRate = commissionRate;
     this.type = type;
-  }
-
-  public double getAmount() {
-    return amount;
   }
 
   public double getCommissionRate() {
@@ -26,10 +20,6 @@ public abstract class Payment {
     return type;
   }
 
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
   public void setCommissionRate(double commissionRate) {
     this.commissionRate = commissionRate;
   }
@@ -38,5 +28,5 @@ public abstract class Payment {
     this.type = type;
   }
 
-  public abstract double calculateFinalAmount();
+  public abstract double calculateFinalAmount(double amount);
 }
