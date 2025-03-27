@@ -4,5 +4,5 @@ import domain.entities.Payment;
 
 public abstract class PaymentFactory {
 
-  public abstract Payment createPayment();
+  public abstract Payment getPayment();
 }

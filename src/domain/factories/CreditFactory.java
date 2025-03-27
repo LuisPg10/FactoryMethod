@@ -6,7 +6,7 @@ import domain.entities.Payment;
 public class CreditFactory extends PaymentFactory {
 
   @Override
-  public Payment createPayment() {
+  public Payment getPayment() {
     return new CreditPayment();
   }
 }

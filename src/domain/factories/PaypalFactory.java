@@ -6,7 +6,7 @@ import domain.entities.PaypalPayment;
 public class PaypalFactory extends PaymentFactory {
 
   @Override
-  public Payment createPayment() {
+  public Payment getPayment() {
     return new PaypalPayment();
   }
 }

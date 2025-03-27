@@ -6,7 +6,7 @@ import domain.entities.Payment;
 public class DebitFactory extends PaymentFactory {
 
   @Override
-  public Payment createPayment() {
+  public Payment getPayment() {
     return new DebitPayment();
   }
 }
