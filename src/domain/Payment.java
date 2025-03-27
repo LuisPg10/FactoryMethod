@@ -2,9 +2,9 @@ package domain;
 
 public abstract class Payment {
 
-  private double amount;
-  private double commissionRate;
-  private PaymentType type;
+  protected double amount;
+  protected double commissionRate;
+  protected PaymentType type;
 
   public Payment(double finalAmount, double commissionRate, PaymentType type) {
     this.amount = finalAmount;
