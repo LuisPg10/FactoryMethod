@@ -5,6 +5,9 @@ import com.payment.paymentapi.services.NotificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/notification")
 public class NotificationController {
@@ -18,6 +21,11 @@ public class NotificationController {
   @PostMapping("/send")
   public ResponseEntity<?> processPayment(@RequestParam String notificationType, @RequestBody NotificationDTO notification) {
     String message = service.sendNotification(notification.getRecipient(), notification.getData(), notificationType);
-    return ResponseEntity.ok(message);
+
+    Map<String, Object> response = new HashMap<>();
+    response.put("message", message);
+    response.put("status", "success");
+
+    return ResponseEntity.ok(response);
   }
 }
