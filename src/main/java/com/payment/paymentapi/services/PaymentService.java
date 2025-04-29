@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 public class PaymentService {
 
-  private final static Map<PaymentType, PaymentFactory> factories = new HashMap<>() {
+  private final Map<PaymentType, PaymentFactory> FACTORIES = new HashMap<>() {
     {
       put(PaymentType.CREDIT_CARD, new CreditFactory());
       put(PaymentType.DEBIT_CARD, new DebitFactory());
@@ -23,7 +23,7 @@ public class PaymentService {
   };
 
   public double processPayment(PaymentType paymentType, double amount) {
-    Payment payment = factories.get(paymentType).getPayment();
+    Payment payment = FACTORIES.get(paymentType).getPayment();
     return payment.calculateFinalAmount(amount);
   }
 }
