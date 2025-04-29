@@ -1,4 +1,4 @@
-package com.payment.paymentapi.domain.entities;
+package com.payment.paymentapi.domain.entities.payment;
 
 public class DebitPayment extends Payment {
 

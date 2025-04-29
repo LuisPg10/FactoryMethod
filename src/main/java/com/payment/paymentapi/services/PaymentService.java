@@ -1,11 +1,11 @@
 package com.payment.paymentapi.services;
 
-import com.payment.paymentapi.domain.entities.Payment;
+import com.payment.paymentapi.domain.entities.payment.Payment;
 import com.payment.paymentapi.domain.enums.PaymentType;
-import com.payment.paymentapi.domain.factories.CreditFactory;
-import com.payment.paymentapi.domain.factories.DebitFactory;
-import com.payment.paymentapi.domain.factories.PaymentFactory;
-import com.payment.paymentapi.domain.factories.PaypalFactory;
+import com.payment.paymentapi.domain.factories.payment.CreditFactory;
+import com.payment.paymentapi.domain.factories.payment.DebitFactory;
+import com.payment.paymentapi.domain.factories.payment.PaymentFactory;
+import com.payment.paymentapi.domain.factories.payment.PaypalFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
