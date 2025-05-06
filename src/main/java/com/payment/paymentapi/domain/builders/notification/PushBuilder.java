@@ -16,6 +16,11 @@ public class PushBuilder implements NotificationBuilder {
   }
 
   @Override
+  public void setSender(String sender) {
+    this.push.setSender(sender);
+  }
+
+  @Override
   public void setMessage(String message) {
     push.setMessage(message);
   }

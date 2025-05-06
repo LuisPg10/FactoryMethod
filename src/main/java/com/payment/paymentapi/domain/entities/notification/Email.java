@@ -1,10 +1,17 @@
 package com.payment.paymentapi.domain.entities.notification;
 
+import com.payment.paymentapi.config.loaders.EmailConfigLoader;
 import com.payment.paymentapi.domain.enums.EmailPriority;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
 import java.util.List;
 
 public class Email extends Notification {
+  private final JavaMailSender mailSender = EmailConfigLoader.load();
+
   private String to;
   private String subject;
   private List<String> cc;
@@ -38,6 +45,20 @@ public class Email extends Notification {
 
   @Override
   public String sendMessage() {
+    MimeMessage mimeMessage = this.mailSender.createMimeMessage();
+
+    try {
+      mimeMessage.setSubject(this.subject);
+      MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+      helper.setTo(this.to);
+      helper.setText(this.message);
+      helper.setFrom(this.sender);
+      this.mailSender.send(mimeMessage);
+
+    } catch (MessagingException e) {
+      System.out.println(e.getMessage());
+    }
+
     return "Message sent via email";
   }
 }

@@ -17,6 +17,11 @@ public class SMSBuilder implements NotificationBuilder {
   }
 
   @Override
+  public void setSender(String sender) {
+    this.sms.setSender(sender);
+  }
+
+  @Override
   public void setMessage(String message) {
     sms.setMessage(message);
   }

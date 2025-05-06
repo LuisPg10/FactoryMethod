@@ -17,6 +17,11 @@ public class WhatsAppBuilder implements NotificationBuilder {
   }
 
   @Override
+  public void setSender(String sender) {
+    this.whatsapp.setSender(sender);
+  }
+
+  @Override
   public void setMessage(String message) {
     whatsapp.setMessage(message);
   }

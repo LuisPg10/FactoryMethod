@@ -18,6 +18,11 @@ public class EmailBuilder implements NotificationBuilder {
   }
 
   @Override
+  public void setSender(String sender) {
+    this.email.setSender(sender);
+  }
+
+  @Override
   public void setMessage(String message) {
     email.setMessage(message);
   }
