@@ -24,4 +24,8 @@ public class Environtment {
   public static String getTwilioNumber() {
     return dotenv.get("TWILIO_NUMBER");
   }
+
+  public static String getWhatsAppTwilioNumber() {
+    return dotenv.get("WHATSAPP_TWILIO_NUMBER");
+  }
 }

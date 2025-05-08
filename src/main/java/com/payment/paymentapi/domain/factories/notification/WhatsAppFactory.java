@@ -1,5 +1,6 @@
 package com.payment.paymentapi.domain.factories.notification;
 
+import com.payment.paymentapi.config.Environtment;
 import com.payment.paymentapi.domain.builders.notification.WhatsAppBuilder;
 import com.payment.paymentapi.domain.entities.notification.Notification;
 
@@ -12,7 +13,8 @@ public class WhatsAppFactory implements NotificationFactory {
   public Notification buildNotification(String recipient, String message) {
     var builder = new WhatsAppBuilder();
 
-    builder.setRecipient(recipient);
+    builder.setSender(Environtment.getWhatsAppTwilioNumber());
+    builder.setRecipient("whatsapp:" + recipient);
     builder.setInteractiveButtons(new ArrayList<>(List.of("cancel", "accept")));
     builder.setLanguage("es-CO");
     builder.setMessage(message);

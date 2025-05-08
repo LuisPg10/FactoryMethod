@@ -1,5 +1,10 @@
 package com.payment.paymentapi.domain.entities.notification;
 
+import com.payment.paymentapi.config.Environtment;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
 import java.util.List;
 
 public class WhatsApp extends Notification {
@@ -31,6 +36,11 @@ public class WhatsApp extends Notification {
 
   @Override
   public String sendMessage() {
+    Twilio.init(Environtment.getTwilioAccountSID(), Environtment.getTwilioAuthToken());
+    var sender = new PhoneNumber(this.sender);
+    var recipient = new PhoneNumber(this.phoneNumber);
+    Message.creator(recipient, sender, this.message).create();
+
     return "Message sent via whatsapp";
   }
 }
