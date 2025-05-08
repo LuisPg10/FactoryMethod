@@ -1,5 +1,6 @@
 package com.payment.paymentapi.domain.factories.notification;
 
+import com.payment.paymentapi.config.Environtment;
 import com.payment.paymentapi.domain.builders.notification.SMSBuilder;
 import com.payment.paymentapi.domain.entities.notification.Notification;
 
@@ -11,11 +12,11 @@ public class SMSFactory implements NotificationFactory {
   public Notification buildNotification(String recipient, String message) {
     var builder = new SMSBuilder();
 
-    builder.setSenderId("34345-6564-42445");
+    builder.setSenderId(Environtment.getTwilioNumber());
     builder.setRecipient(recipient);
     builder.setMessage(message);
     builder.setScheduleTime(LocalDateTime.now().plusSeconds(10));
-
+    builder.setDeliveryReportRequired(false);
     return builder.getResult();
   }
 }
