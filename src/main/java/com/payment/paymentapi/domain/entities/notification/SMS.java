@@ -32,7 +32,7 @@ public class SMS extends Notification {
   @Override
   public String sendMessage() {
     Twilio.init(Environtment.getTwilioAccountSID(), Environtment.getTwilioAuthToken());
-    var sender = new PhoneNumber(this.senderId);
+    var sender = new PhoneNumber(this.sender);
     var recipient = new PhoneNumber(this.phoneNumber);
     Message.creator(recipient, sender, this.message).create();
 

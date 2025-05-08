@@ -12,7 +12,7 @@ public class SMSFactory implements NotificationFactory {
   public Notification buildNotification(String recipient, String message) {
     var builder = new SMSBuilder();
 
-    builder.setSenderId(Environtment.getTwilioNumber());
+    builder.setSender(Environtment.getTwilioNumber());
     builder.setRecipient(recipient);
     builder.setMessage(message);
     builder.setScheduleTime(LocalDateTime.now().plusSeconds(10));
