@@ -10,7 +10,8 @@ public class PDF {
   private boolean includeUserInfo;
   private Theme theme;
   private boolean includeTimestamp;
-  private String Mensaje;
+  private String footerMessage;
+  private String message;
   private Format format;
 
   public void setIncludeLogo(boolean includeLogo) {
@@ -37,11 +38,51 @@ public class PDF {
     this.includeTimestamp = includeTimestamp;
   }
 
-  public void setMensaje(String mensaje) {
-    Mensaje = mensaje;
+  public void setFooterMessage(String footerMessage) {
+    this.footerMessage = footerMessage;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public void setFormat(Format format) {
     this.format = format;
+  }
+
+  public boolean isIncludeLogo() {
+    return includeLogo;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public boolean isIncludePaymentDetails() {
+    return includePaymentDetails;
+  }
+
+  public boolean isIncludeUserInfo() {
+    return includeUserInfo;
+  }
+
+  public Theme getTheme() {
+    return theme;
+  }
+
+  public boolean isIncludeTimestamp() {
+    return includeTimestamp;
+  }
+
+  public String getFooterMessage() {
+    return footerMessage;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public Format getFormat() {
+    return format;
   }
 }

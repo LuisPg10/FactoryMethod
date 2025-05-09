@@ -39,8 +39,12 @@ public class PDFBuilder {
     pdf.setIncludeTimestamp(includeTimestamp);
   }
 
-  public void setMensaje(String mensaje) {
-    pdf.setMensaje(mensaje);
+  public void setFooterMeesage(String footerMesage) {
+    pdf.setFooterMessage(footerMesage);
+  }
+
+  public void setMessage(String message) {
+    pdf.setMessage(message);
   }
 
   public void setFormat(Format format) {

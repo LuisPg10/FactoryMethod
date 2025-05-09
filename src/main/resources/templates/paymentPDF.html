@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pdf.title}">Reporte de Pago</title>
+    <link rel="stylesheet" type="text/css" href="../pdf-resources/css/paymentPDFStyle.css"/>
+</head>
+<!-- Aplicamos el theme y el format como clases usando sus valores de ENUM -->
+<body th:class="${pdf.theme?.name()?.toLowerCase()} + '-theme'">
+
+<div class="header">
+    <div class="logo" th:if="${pdf.includeLogo}">
+        <img src="../pdf-resources/images/openpay-logo.png" alt="Logo de Open Pay" height="100"/>
+    </div>
+    <h1 class="title" th:text="${pdf.title}">Título del Reporte</h1>
+</div>
+
+<main class="content">
+    <section class="message">
+        <p th:text="${pdf.message}">Mensaje principal del reporte.</p>
+    </section>
+
+    <section th:if="${pdf.includePaymentDetails}" class="payment-details">
+        <h2>Detalles del Pago</h2>
+        <ul>
+            <li>Número de transacción: <span>1234567890</span></li>
+        </ul>
+    </section>
+
+    <section th:if="${pdf.includeUserInfo}" class="user-info">
+        <h2>Información del Usuario</h2>
+        <ul>
+            <li>Nombre: <span>Perencejito</span></li>
+            <li>Apellido: <span>Caseres</span></li>
+        </ul>
+    </section>
+
+    <section th:if="${pdf.includeTimestamp}" class="timestamp">
+        <p>Fecha y hora de generación: <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></span>
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p th:if="${pdf.footerMessage != null}" th:text="${pdf.footerMessage}">Mensaje en el pie del documento.</p>
+</footer>
+
+</body>
+</html>
